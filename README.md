@@ -1,7 +1,7 @@
 # Telco customer Churn Prediction
 ## Machine Learning: Classification problem - Supervised learning
 
-<img src="./img/churn.png" alt="churn" width="40%">
+<img src="./img/churn.png" alt="churn" width="40%" >
 
 
 ---
@@ -76,7 +76,8 @@ The data set includes mainly information about:
 
 <br>
 
-<img src="./img/missingval.png" alt="churn" width="100%">
+<img src="./img/missingval.png" alt="churn" width="100%" style="display: block; margin: 0 auto">
+
 
 
 <br>
@@ -100,7 +101,7 @@ anderson_normality_test (There's already clear visual evidence this feature is n
 
 
 
-<img src="./img/tenure1.png" alt="churn" width="100%">
+<img src="./img/tenure1.png" alt="churn" width="100%" style="display: block; margin: 0 auto">>
 
 <br>
 <br>
@@ -115,7 +116,7 @@ anderson_normality_test (There's already clear visual evidence this feature is n
 - Critical value at 5%: 0.656
 - Data does not look Gaussian (reject H0)
 
-<img src="./img/monthlycharges1.png" alt="churn" width="100%">
+<img src="./img/monthlycharges1.png" alt="churn" width="100%" style="display: block; margin: 0 auto">>
 
 <br>
 <br>
@@ -130,7 +131,7 @@ anderson_normality_test (There's already clear visual evidence this feature is n
 - Critical value at 5%: 0.656
 - Data does not look Gaussian (reject H0)
 
-<img src="./img/monthlycharges1.png" alt="churn" width="100%">
+<img src="./img/monthlycharges1.png" alt="churn" width="100%" style="display: block; margin: 0 auto">>
 
 <br>
 <br>
@@ -146,7 +147,7 @@ anderson_normality_test:
 - Critical value at 5%: 0.656
 - Data does not look Gaussian (reject H0)
 
-<img src="./img/ExtraChargesEstimate1.png" alt="churn" width="100%">
+<img src="./img/ExtraChargesEstimate1.png" alt="churn" width="100%" style="display: block; margin: 0 auto">
 
 <br>
 <br>
@@ -155,7 +156,7 @@ anderson_normality_test:
 
 Given that we are going to predict churn using this numerical variables, it is recommended to scale them because many machine learning algorithms rely on distance measures between data points to make predictions. If the numerical variables have different scales, it can lead to inaccuracies in the distance measures and ultimately affect the performance of the model.
 
-  `MinMaxScaler`: This scaler scales the data to a fixed range of 0 to 1. I will use this scaler, given that the data is positive, non-Gaussian, and mainly concentrated in the minimum and/or maximum values
+  `MinMaxScaler`: This scaler scales the data to a fixed range of 0 to 1. I will use this scaler, given that the data is positive and non-Gaussian.
 
 <br>
 <br>
@@ -206,36 +207,66 @@ Given that our dataset has features with max 3 categories per feature, i used On
 
 ## `Descriptive Statistics`
 
-
-| |index|null_%|null_count|dtype|count|mean|std|min|25%|50%|75%|max|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|0|gender|0.00000|0|int32|7043|0.50000|0.50000|0.00000|0.00000|1.00000|1.00000|1.00000|
-|1|PaymentMethod|0.00000|0|int32|7043|1.57000|1.07000|0.00000|1.00000|2.00000|2.00000|3.00000|
-|2|PaperlessBilling|0.00000|0|int32|7043|0.59000|0.49000|0.00000|0.00000|1.00000|1.00000|1.00000|
-|3|Contract|0.00000|0|int32|7043|0.69000|0.83000|0.00000|0.00000|0.00000|1.00000|2.00000|
-|4|StreamingMovies|0.00000|0|int32|7043|0.99000|0.89000|0.00000|0.00000|1.00000|2.00000|2.00000|
-|5|StreamingTV|0.00000|0|int32|7043|0.99000|0.89000|0.00000|0.00000|1.00000|2.00000|2.00000|
-|6|TechSupport|0.00000|0|int32|7043|0.80000|0.86000|0.00000|0.00000|1.00000|2.00000|2.00000|
-|7|Churn|0.00000|0|int32|7043|0.27000|0.44000|0.00000|0.00000|0.00000|1.00000|1.00000|
-|8|OnlineBackup|0.00000|0|int32|7043|0.91000|0.88000|0.00000|0.00000|1.00000|2.00000|2.00000|
-|9|DeviceProtection|0.00000|0|int32|7043|0.90000|0.88000|0.00000|0.00000|1.00000|2.00000|2.00000|
-|10|InternetService|0.00000|0|int32|7043|0.87000|0.74000|0.00000|0.00000|1.00000|1.00000|2.00000|
-|11|MultipleLines|0.00000|0|int32|7043|0.94000|0.95000|0.00000|0.00000|1.00000|2.00000|2.00000|
-|12|PhoneService|0.00000|0|int32|7043|0.90000|0.30000|0.00000|1.00000|1.00000|1.00000|1.00000|
-|13|Dependents|0.00000|0|int32|7043|0.30000|0.46000|0.00000|0.00000|0.00000|1.00000|1.00000|
-|14|Partner|0.00000|0|int32|7043|0.48000|0.50000|0.00000|0.00000|0.00000|1.00000|1.00000|
-|15|OnlineSecurity|0.00000|0|int32|7043|0.79000|0.86000|0.00000|0.00000|1.00000|2.00000|2.00000|
-|16|SeniorCitizen|0.00000|0|int64|7043|0.16000|0.37000|0.00000|0.00000|0.00000|0.00000|1.00000|
-|17|tenure|0.00000|0|float64|7043|0.45000|0.34000|0.00000|0.12000|0.40000|0.76000|1.00000|
-|18|MonthlyCharges|0.00000|0|float64|7043|0.46000|0.30000|0.00000|0.17000|0.52000|0.71000|1.00000|
-|19|TotalCharges|0.00000|0|float64|7043|0.26000|0.26000|0.00000|0.05000|0.16000|0.44000|1.00000|
-|20|ExtraChargesEstimate|0.00000|0|float64|7043|0.50000|0.09000|0.00000|0.46000|0.50000|0.54000|1.00000|
+### Categorical Variables
 
 <br>
+
+`main takeouts`
+
+1- Crosseling clearly contributes to churn reduction, leaving out streaming services.
+
+2- Contract type and payment options are considerably relevant, with Month-to-Month based Contract, PaperlessBilling particularly with Electronic check seem to be churn drivers.
+
+------------- 
+#### User Demographics
 <br>
+
+<img src="./img/dashboard1.png" alt="churn" width="100%" style="display: block; margin: 0 auto">
+<br>
+
+- Gender has exacly the same proportion in each case, irrelevant feature.
+- No dependants have a higher churn proportion.
+- Partners have a consistent proportion for each category.
+- Senior citizens have a higher churn proportion.
+
+<br>
+
+#### Contract/Payment
+<br>
+<img src="./img/dashboard2.png" alt="churn" width="100%" style="display: block; margin: 0 auto">
+<br>
+
+- Customer with a Month-to-Month based Contract churned the most in this category
+- A high number of customers have switched their service provider when it comes down TechSupport
+- PaperlessBilling displays a high proportion of customers churning
+- Customers using Electronic check as PaymentMethod churned heavily.
+
+<br>
+
+#### Products suite
+
+<br>
+
+<img src="./img/dashboard3.png" alt="churn" width="100%" style="display: block; margin: 0 auto">
+
+<br>
+
+- MultipleLines has a slightly less proportion of churned users than other categories within this feature.
+- InternetService: Fiber optic is clearly a pain point.
+- StreamingTV and StreamingMovies show the same proportions, doesn't seem relevant for churn.
+- A high proportion of customers without OnlineSecurity, OnlineBackup and DeviceProtection churned.
+
+
+
+
+
+
+
+
 <br>
 
 ## `Feature Engineering`
+----------------
 <br>
 <br>
 
@@ -247,9 +278,9 @@ TotalCharges has a high correlation with Monthly charges
 TotalCharges should be dropped, as it doesn't add additional info and its correlated with other variables `(TotalCharges = MontlyCharges * Tenure + ExtraChargesEstimate)`.
 <br>
 <br>
-<img src="./img/corrmatrix.png" alt="churn" width="75%">
+<img src="./img/corrmatrix.png" alt="churn" width="75%" style="display: block; margin: 0 auto">>
 
-### Correlation of each variable vs Churn:
+### `Correlation of each variable vs Churn`:
 
 
 The following features show a very low level of correlation:
@@ -263,7 +294,7 @@ The following features show a very low level of correlation:
     - Internet service
 
 
-<img src="./img/corrvschurn.png" alt="churn" width="75%">
+<img src="./img/corrvschurn.png" alt="churn" width="75%" style="display: block; margin: 0 auto">
 
 <br><br>
 
@@ -311,14 +342,114 @@ This classification task has a clear problem: the number of churned customers is
 - Undersampling - Random Undersampling
 
 
-<br><br>
+<br>
 
 
-<img src="./img/sampling.png" alt="churn" width="75%">
+<img src="./img/sampling.png" alt="churn" width="75%" style="display: block; margin: 0 auto">
 
 
 <br>
 <br><br>
+
+## Modelling
+------------------------
+
+### **Measuring model performance**
+
+*The overall accuracy of the model was be inferred from the averages of the precision, recall and f1-score metrics.*
+
+<br>
+
+`Precision`: the proportion of predicted positive instances that are actually positive. It measures the model's accuracy in predicting positive instances.
+
+`Recall`: the proportion of actual positive instances that are correctly predicted as positive. It measures the model's completeness in predicting positive instances.
+
+`F1-score`: the harmonic mean of precision and recall. It provides a balanced measure of both precision and recall.
+
+`ROC AUC`: (Receiver Operating Characteristic Area Under Curve) is a performance metric commonly used in binary classification problems to evaluate the ability of a model to distinguish between positive and negative classes. ROC AUC is a measure of the model's ability to correctly rank true positives (TP) higher than false positives (FP) across a range of decision thresholds.
+
+
+<br>
+
+### **Machine Learning Pipeline**
+
+Given that getting the best model possible without overfitting with such a heavy class imbalance, i iterated over several sampling, models, parameters and feature reduction options to get the best result possible. I benchmarked this with an AutoML package (H20).
+
+This Pipeline works on the preprocessed data given the following inputs:
+
+- **List of resamples:**
+    - No resampling
+    - SMOTE = 0.5
+    - SMOTE = 1
+    - Random undersampling
+
+<br>
+
+- **List of Classification Machine Learning models:**
+
+    - LogisticRegression
+
+        A linear model that uses a logistic function to model the probability of the positive class. Useful for its simplicity, interpretability, and speed. Can be regularized to prevent overfitting.
+    
+    - RandomForestClassifier
+
+        An ensemble model that combines multiple decision trees to improve accuracy and reduce overfitting. Useful for its flexibility, interpretability, and resistance to outliers. Can handle class imbalance with weighting or sampling.
+    
+    - GradientBoostingClassifier
+
+        An ensemble model that combines multiple weak models (e.g., decision trees) in a sequential manner to improve accuracy. Useful for its high accuracy, flexibility, and ability to handle different types of data. Can handle class imbalance with weighting or sampling.
+
+    - XGBClassifier
+
+        A gradient boosting model that uses optimized distributed gradient boosting algorithms to improve accuracy and reduce computation time. Useful for large and complex datasets, with high accuracy and good scalability. Can handle class imbalance with weighting or sampling.
+
+    - MLPClassifier
+
+        A neural network model that uses multiple layers of nodes to model complex non-linear relationships in the data. Useful for its flexibility, ability to handle different types of data, and high accuracy. Can handle class imbalance with weighting or resampling. Can be sensitive to the choice of hyperparameters and prone to overfitting.
+
+<br>
+
+- **List of Parameters** per Machine Learning model to use in Gridsearch, aligned to the classification problem at hand
+
+- **List of Feature importance** level filtering.
+
+<br>
+
+### `Top 5 results`
+<br>
+
+The GradientBoostingClassifier model with Oversampling and Default parameters has the highest F1 score. As the other models, given this sample with such a low % of positive Churn cases, it struggles to get a high precision level (TruePositives / (TruePositives + FalsePositives)), although it gets a high recall value (TruePositives / (TruePositives + FalseNegatives)).
+
+    Recall measures the ability of the model to identify all positive instances correctly. Given the problem context (Telco companies spend up to 4 times more to get a new customer than retaining one), a false negative (predicting a customer won't churn when they actually will) would probably lead to the loss of a customer and potential revenue, which would be more costly than a false positive (predicting a customer will churn when they actually won't).
+<br>
+
+
+| |sampling|ROC_AUC|accuracy|precision|recall|f1_score|model|params|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|1|Oversampling1|0.84050|0.74844|0.51857|0.80213|0.62991|GradientBoostingClassifier|NaN|
+|2|feature_reduction|0.83920|0.73878|0.50653|0.82553|0.62783|RandomForestClassifier|0.05000|
+|3|feature_reduction|0.84505|0.72743|0.49372|0.83617|0.62085|XGBClassifier|0.00000|
+|4|feature_reduction|0.82998|0.76491|0.54575|0.71064|0.61738|GradientBoostingClassifier|0.01000|
+|5|Undersampling|0.84594|0.72288|0.48872|0.82979|0.61514|GradientBoostingClassifier|NaN|
+
+<br>
+
+**AutoML (H20) Package to benchmark results**
+<br>
+<br>
+| |sampling|ROC_AUC|accuracy|precision|recall|f1_score|model|params|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|1|Original Sample|0.8147475|0.749828|0.5231197|0.7132375|0.6014422|StackedEnsemble_|NaN|
+
+. | .
+:---------:|:------:
+<img src="./img/rocauc.png" alt="churn" width="100%" style="display: block; margin: 0 auto"> |  <img src="./img/confusionmatrix.png" alt="churn" width="100%" style="display: block; margin: 0 auto">
+
+
+<br>
+
+
+
 <br><br>
 <br><br>
 <br><br>
