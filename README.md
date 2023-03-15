@@ -326,13 +326,9 @@ in this case, ExtraChargesEstimate has a p-value higher than the significance le
 ### `Dropping non significant features:`
 <br>
 
-- 'MultipleLines'
 - 'PhoneService'
 - 'ExtraChargesEstimate'
 - 'gender'
-- 'StreamingTV'
-- 'StreamingMovies'
-- 'StreamingMovies'
 - 'TotalCharges'
 
 <br>
