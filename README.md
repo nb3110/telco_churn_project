@@ -452,6 +452,7 @@ The GradientBoostingClassifier model with Oversampling and Default parameters ha
 ### **Feature Importance Table**
 <br>
 
+
 |features|importance|
 |:----|:----|
 |Contract|0.47403|
