@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 data_dict.xlsx
 data.xls
+
+streamlit
